@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: guangxi-relay
+    runtime: node
+    plan: free
+    region: oregon           # Render 免费版可选区域；国内访问 oregon 一般可达
+    branch: main
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /health
+    envVars:
+      - key: PORT
+        value: 3000
